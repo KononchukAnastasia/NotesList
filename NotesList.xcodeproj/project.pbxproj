@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		B55184C92BCAF620002443CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55184C82BCAF620002443CB /* AppDelegate.swift */; };
 		B55184CB2BCAF620002443CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55184CA2BCAF620002443CB /* SceneDelegate.swift */; };
-		B55184CD2BCAF620002443CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55184CC2BCAF620002443CB /* ViewController.swift */; };
 		B55184D02BCAF620002443CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55184CE2BCAF620002443CB /* Main.storyboard */; };
 		B55184D22BCAF624002443CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B55184D12BCAF624002443CB /* Assets.xcassets */; };
 		B55184D52BCAF624002443CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55184D32BCAF624002443CB /* LaunchScreen.storyboard */; };
+		B55184E12BCB0438002443CB /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55184E02BCB0438002443CB /* NotesListViewController.swift */; };
+		B55184E32BCB0462002443CB /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55184E22BCB0462002443CB /* NewNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B55184C52BCAF620002443CB /* NotesList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55184C82BCAF620002443CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B55184CA2BCAF620002443CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B55184CC2BCAF620002443CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B55184CF2BCAF620002443CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B55184D12BCAF624002443CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B55184D42BCAF624002443CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B55184D62BCAF624002443CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B55184E02BCB0438002443CB /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
+		B55184E22BCB0462002443CB /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		B55184C72BCAF620002443CB /* NotesList */ = {
 			isa = PBXGroup;
 			children = (
-				B55184C82BCAF620002443CB /* AppDelegate.swift */,
-				B55184CA2BCAF620002443CB /* SceneDelegate.swift */,
-				B55184CC2BCAF620002443CB /* ViewController.swift */,
-				B55184CE2BCAF620002443CB /* Main.storyboard */,
-				B55184D12BCAF624002443CB /* Assets.xcassets */,
-				B55184D32BCAF624002443CB /* LaunchScreen.storyboard */,
-				B55184D62BCAF624002443CB /* Info.plist */,
+				B55184DC2BCAF68A002443CB /* ViewControllers */,
+				B55184DD2BCAF6A2002443CB /* Storyboards */,
+				B55184DE2BCAF6D3002443CB /* Supporting */,
+				B55184DF2BCAF6E5002443CB /* Resources */,
 			);
 			path = NotesList;
+			sourceTree = "<group>";
+		};
+		B55184DC2BCAF68A002443CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B55184E02BCB0438002443CB /* NotesListViewController.swift */,
+				B55184E22BCB0462002443CB /* NewNoteViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B55184DD2BCAF6A2002443CB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B55184CE2BCAF620002443CB /* Main.storyboard */,
+				B55184D32BCAF624002443CB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B55184DE2BCAF6D3002443CB /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B55184C82BCAF620002443CB /* AppDelegate.swift */,
+				B55184CA2BCAF620002443CB /* SceneDelegate.swift */,
+				B55184D62BCAF624002443CB /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		B55184DF2BCAF6E5002443CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B55184D12BCAF624002443CB /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55184CD2BCAF620002443CB /* ViewController.swift in Sources */,
+				B55184E32BCB0462002443CB /* NewNoteViewController.swift in Sources */,
+				B55184E12BCB0438002443CB /* NotesListViewController.swift in Sources */,
 				B55184C92BCAF620002443CB /* AppDelegate.swift in Sources */,
 				B55184CB2BCAF620002443CB /* SceneDelegate.swift in Sources */,
 			);
@@ -294,7 +330,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3CCNFR9RJK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesList/Info.plist;
+				INFOPLIST_FILE = NotesList/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -322,7 +358,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3CCNFR9RJK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesList/Info.plist;
+				INFOPLIST_FILE = NotesList/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
