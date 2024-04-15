@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" title="Notes List" id="GCg-mt-1Oh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pvO-FU-IOW">
                             <connections>
-                                <action selector="addNoteAction:" destination="CXs-5s-VPm" id="uGh-er-IPV"/>
+                                <action selector="addNoteButtonPressed" destination="CXs-5s-VPm" id="bR1-Jh-h8F"/>
                                 <segue destination="b9L-XN-olO" kind="show" identifier="note" id="DO3-Lm-bdP"/>
                             </connections>
                         </barButtonItem>

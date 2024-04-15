@@ -7,7 +7,7 @@
 
 import CoreData
 
-class StorageManager {
+final class StorageManager {
     // MARK: - Public Properties
     static let shared = StorageManager()
     

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class NotesListViewController: UITableViewController {
+final class NotesListViewController: UITableViewController {
 
-    @IBOutlet var notesListTableView: UITableView!
+    @IBOutlet private var notesListTableView: UITableView!
     
     private let storageManager = StorageManager.shared
     private var activeNote: Int?
@@ -83,8 +83,7 @@ class NotesListViewController: UITableViewController {
         }
     }
     
-
-    @IBAction func addNoteAction(_ sender: Any) {
+    @IBAction func addNoteButtonPressed() {
         performSegue(withIdentifier: "note", sender: nil)
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class NewNoteViewController: UIViewController {
 
-    @IBOutlet weak var newNoteTextView: UITextView!
+    @IBOutlet private var newNoteTextView: UITextView!
     
     var note: String?
     var onNote: ((String) -> Void)?
