@@ -11,12 +11,15 @@ class NotesListViewController: UITableViewController {
 
     @IBOutlet var notesListTableView: UITableView!
     
-    var notes: [String] = []
+    private let storageManager = StorageManager.shared
     private var activeNote: Int?
+    
+    var notes: [Note] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        notes = storageManager.fetchData(Note.self, sortKey: "date")
         notesListTableView.delegate = self
     }
 
@@ -31,7 +34,7 @@ class NotesListViewController: UITableViewController {
         let note = notes[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = note
+        content.text = note.text
         cell.contentConfiguration = content
 
         return cell
@@ -42,11 +45,14 @@ class NotesListViewController: UITableViewController {
         let note = notes[indexPath.row]
         activeNote = indexPath.row
         
-        performSegue(withIdentifier: "note", sender: note)
+        performSegue(withIdentifier: "note", sender: note.text)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
            if editingStyle == .delete {
+               storageManager.delete(notes[indexPath.row])
+               storageManager.saveContext()
+               
                notes.remove(at: indexPath.row)
                tableView.deleteRows(at: [indexPath], with: .fade)
            }
@@ -58,18 +64,22 @@ class NotesListViewController: UITableViewController {
         guard let newNoteVC = segue.destination as? NewNoteViewController else { return }
         newNoteVC.note = sender as? String
         newNoteVC.onNote = { [weak self] text in
-            if let activeNote = self?.activeNote {
-                self?.notes.remove(at: activeNote)
-                
-//                let nnn = Notes(text: text, date: Date(), id: UUID())
-                self?.notes.insert(text, at: 0)
-                self?.activeNote = nil
-            } else {
-                self?.notes.insert(text, at: 0)
+            guard let self = self else { return }
+            
+            let note = Note(context: self.storageManager.context)
+            note.id = UUID()
+            note.text = text
+            note.date = Date()
+            
+            if let activeNote = self.activeNote {
+                self.storageManager.delete(self.notes[activeNote])
+                self.notes.remove(at: activeNote)
+                self.activeNote = nil
             }
             
-//            self?.notes.sort(<)
-            self?.notesListTableView.reloadData()
+            self.storageManager.saveContext()
+            self.notes.insert(note, at: 0)
+            self.notesListTableView.reloadData()
         }
     }
     
@@ -78,9 +88,3 @@ class NotesListViewController: UITableViewController {
         performSegue(withIdentifier: "note", sender: nil)
     }
 }
-
-//struct Notes {
-//    let text: String
-//    let date: Date
-//    let id: UUID
-//}
